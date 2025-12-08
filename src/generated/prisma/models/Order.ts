@@ -27,40 +27,37 @@ export type AggregateOrder = {
 export type OrderMinAggregateOutputType = {
   id: string | null
   orderNumber: string | null
-  deliveryAddress: string | null
+  deliveryAddressId: string | null
   estimatedDeliveryDate: Date | null
   deliveryDate: Date | null
-  status: string | null
-  userId: string | null
+  clientId: string | null
   createdAt: Date | null
   updatedAt: Date | null
-  deleteAt: Date | null
+  deletedAt: Date | null
 }
 
 export type OrderMaxAggregateOutputType = {
   id: string | null
   orderNumber: string | null
-  deliveryAddress: string | null
+  deliveryAddressId: string | null
   estimatedDeliveryDate: Date | null
   deliveryDate: Date | null
-  status: string | null
-  userId: string | null
+  clientId: string | null
   createdAt: Date | null
   updatedAt: Date | null
-  deleteAt: Date | null
+  deletedAt: Date | null
 }
 
 export type OrderCountAggregateOutputType = {
   id: number
   orderNumber: number
-  deliveryAddress: number
+  deliveryAddressId: number
   estimatedDeliveryDate: number
   deliveryDate: number
-  status: number
-  userId: number
+  clientId: number
   createdAt: number
   updatedAt: number
-  deleteAt: number
+  deletedAt: number
   _all: number
 }
 
@@ -68,40 +65,37 @@ export type OrderCountAggregateOutputType = {
 export type OrderMinAggregateInputType = {
   id?: true
   orderNumber?: true
-  deliveryAddress?: true
+  deliveryAddressId?: true
   estimatedDeliveryDate?: true
   deliveryDate?: true
-  status?: true
-  userId?: true
+  clientId?: true
   createdAt?: true
   updatedAt?: true
-  deleteAt?: true
+  deletedAt?: true
 }
 
 export type OrderMaxAggregateInputType = {
   id?: true
   orderNumber?: true
-  deliveryAddress?: true
+  deliveryAddressId?: true
   estimatedDeliveryDate?: true
   deliveryDate?: true
-  status?: true
-  userId?: true
+  clientId?: true
   createdAt?: true
   updatedAt?: true
-  deleteAt?: true
+  deletedAt?: true
 }
 
 export type OrderCountAggregateInputType = {
   id?: true
   orderNumber?: true
-  deliveryAddress?: true
+  deliveryAddressId?: true
   estimatedDeliveryDate?: true
   deliveryDate?: true
-  status?: true
-  userId?: true
+  clientId?: true
   createdAt?: true
   updatedAt?: true
-  deleteAt?: true
+  deletedAt?: true
   _all?: true
 }
 
@@ -180,14 +174,13 @@ export type OrderGroupByArgs<ExtArgs extends runtime.Types.Extensions.InternalAr
 export type OrderGroupByOutputType = {
   id: string
   orderNumber: string
-  deliveryAddress: string
+  deliveryAddressId: string
   estimatedDeliveryDate: Date
   deliveryDate: Date | null
-  status: string
-  userId: string
+  clientId: string
   createdAt: Date
   updatedAt: Date
-  deleteAt: Date | null
+  deletedAt: Date | null
   _count: OrderCountAggregateOutputType | null
   _min: OrderMinAggregateOutputType | null
   _max: OrderMaxAggregateOutputType | null
@@ -214,30 +207,30 @@ export type OrderWhereInput = {
   NOT?: Prisma.OrderWhereInput | Prisma.OrderWhereInput[]
   id?: Prisma.StringFilter<"Order"> | string
   orderNumber?: Prisma.StringFilter<"Order"> | string
-  deliveryAddress?: Prisma.StringFilter<"Order"> | string
+  deliveryAddressId?: Prisma.StringFilter<"Order"> | string
   estimatedDeliveryDate?: Prisma.DateTimeFilter<"Order"> | Date | string
   deliveryDate?: Prisma.DateTimeNullableFilter<"Order"> | Date | string | null
-  status?: Prisma.StringFilter<"Order"> | string
-  userId?: Prisma.StringFilter<"Order"> | string
+  clientId?: Prisma.StringFilter<"Order"> | string
   createdAt?: Prisma.DateTimeFilter<"Order"> | Date | string
   updatedAt?: Prisma.DateTimeFilter<"Order"> | Date | string
-  deleteAt?: Prisma.DateTimeNullableFilter<"Order"> | Date | string | null
-  user?: Prisma.XOR<Prisma.UserScalarRelationFilter, Prisma.UserWhereInput>
+  deletedAt?: Prisma.DateTimeNullableFilter<"Order"> | Date | string | null
+  deliveryAddress?: Prisma.XOR<Prisma.AddressScalarRelationFilter, Prisma.AddressWhereInput>
+  client?: Prisma.XOR<Prisma.ClientScalarRelationFilter, Prisma.ClientWhereInput>
   items?: Prisma.OrderItemListRelationFilter
 }
 
 export type OrderOrderByWithRelationInput = {
   id?: Prisma.SortOrder
   orderNumber?: Prisma.SortOrder
-  deliveryAddress?: Prisma.SortOrder
+  deliveryAddressId?: Prisma.SortOrder
   estimatedDeliveryDate?: Prisma.SortOrder
   deliveryDate?: Prisma.SortOrderInput | Prisma.SortOrder
-  status?: Prisma.SortOrder
-  userId?: Prisma.SortOrder
+  clientId?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
-  deleteAt?: Prisma.SortOrderInput | Prisma.SortOrder
-  user?: Prisma.UserOrderByWithRelationInput
+  deletedAt?: Prisma.SortOrderInput | Prisma.SortOrder
+  deliveryAddress?: Prisma.AddressOrderByWithRelationInput
+  client?: Prisma.ClientOrderByWithRelationInput
   items?: Prisma.OrderItemOrderByRelationAggregateInput
 }
 
@@ -247,29 +240,28 @@ export type OrderWhereUniqueInput = Prisma.AtLeast<{
   AND?: Prisma.OrderWhereInput | Prisma.OrderWhereInput[]
   OR?: Prisma.OrderWhereInput[]
   NOT?: Prisma.OrderWhereInput | Prisma.OrderWhereInput[]
-  deliveryAddress?: Prisma.StringFilter<"Order"> | string
+  deliveryAddressId?: Prisma.StringFilter<"Order"> | string
   estimatedDeliveryDate?: Prisma.DateTimeFilter<"Order"> | Date | string
   deliveryDate?: Prisma.DateTimeNullableFilter<"Order"> | Date | string | null
-  status?: Prisma.StringFilter<"Order"> | string
-  userId?: Prisma.StringFilter<"Order"> | string
+  clientId?: Prisma.StringFilter<"Order"> | string
   createdAt?: Prisma.DateTimeFilter<"Order"> | Date | string
   updatedAt?: Prisma.DateTimeFilter<"Order"> | Date | string
-  deleteAt?: Prisma.DateTimeNullableFilter<"Order"> | Date | string | null
-  user?: Prisma.XOR<Prisma.UserScalarRelationFilter, Prisma.UserWhereInput>
+  deletedAt?: Prisma.DateTimeNullableFilter<"Order"> | Date | string | null
+  deliveryAddress?: Prisma.XOR<Prisma.AddressScalarRelationFilter, Prisma.AddressWhereInput>
+  client?: Prisma.XOR<Prisma.ClientScalarRelationFilter, Prisma.ClientWhereInput>
   items?: Prisma.OrderItemListRelationFilter
 }, "id" | "orderNumber">
 
 export type OrderOrderByWithAggregationInput = {
   id?: Prisma.SortOrder
   orderNumber?: Prisma.SortOrder
-  deliveryAddress?: Prisma.SortOrder
+  deliveryAddressId?: Prisma.SortOrder
   estimatedDeliveryDate?: Prisma.SortOrder
   deliveryDate?: Prisma.SortOrderInput | Prisma.SortOrder
-  status?: Prisma.SortOrder
-  userId?: Prisma.SortOrder
+  clientId?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
-  deleteAt?: Prisma.SortOrderInput | Prisma.SortOrder
+  deletedAt?: Prisma.SortOrderInput | Prisma.SortOrder
   _count?: Prisma.OrderCountOrderByAggregateInput
   _max?: Prisma.OrderMaxOrderByAggregateInput
   _min?: Prisma.OrderMinOrderByAggregateInput
@@ -281,108 +273,140 @@ export type OrderScalarWhereWithAggregatesInput = {
   NOT?: Prisma.OrderScalarWhereWithAggregatesInput | Prisma.OrderScalarWhereWithAggregatesInput[]
   id?: Prisma.StringWithAggregatesFilter<"Order"> | string
   orderNumber?: Prisma.StringWithAggregatesFilter<"Order"> | string
-  deliveryAddress?: Prisma.StringWithAggregatesFilter<"Order"> | string
+  deliveryAddressId?: Prisma.StringWithAggregatesFilter<"Order"> | string
   estimatedDeliveryDate?: Prisma.DateTimeWithAggregatesFilter<"Order"> | Date | string
   deliveryDate?: Prisma.DateTimeNullableWithAggregatesFilter<"Order"> | Date | string | null
-  status?: Prisma.StringWithAggregatesFilter<"Order"> | string
-  userId?: Prisma.StringWithAggregatesFilter<"Order"> | string
+  clientId?: Prisma.StringWithAggregatesFilter<"Order"> | string
   createdAt?: Prisma.DateTimeWithAggregatesFilter<"Order"> | Date | string
   updatedAt?: Prisma.DateTimeWithAggregatesFilter<"Order"> | Date | string
-  deleteAt?: Prisma.DateTimeNullableWithAggregatesFilter<"Order"> | Date | string | null
+  deletedAt?: Prisma.DateTimeNullableWithAggregatesFilter<"Order"> | Date | string | null
 }
 
 export type OrderCreateInput = {
   id?: string
   orderNumber: string
-  deliveryAddress: string
   estimatedDeliveryDate: Date | string
   deliveryDate?: Date | string | null
-  status: string
   createdAt?: Date | string
   updatedAt?: Date | string
-  deleteAt?: Date | string | null
-  user: Prisma.UserCreateNestedOneWithoutOrdersInput
+  deletedAt?: Date | string | null
+  deliveryAddress: Prisma.AddressCreateNestedOneWithoutOrdersInput
+  client: Prisma.ClientCreateNestedOneWithoutOrdersInput
   items?: Prisma.OrderItemCreateNestedManyWithoutOrderInput
 }
 
 export type OrderUncheckedCreateInput = {
   id?: string
   orderNumber: string
-  deliveryAddress: string
+  deliveryAddressId: string
   estimatedDeliveryDate: Date | string
   deliveryDate?: Date | string | null
-  status: string
-  userId: string
+  clientId: string
   createdAt?: Date | string
   updatedAt?: Date | string
-  deleteAt?: Date | string | null
+  deletedAt?: Date | string | null
   items?: Prisma.OrderItemUncheckedCreateNestedManyWithoutOrderInput
 }
 
 export type OrderUpdateInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   orderNumber?: Prisma.StringFieldUpdateOperationsInput | string
-  deliveryAddress?: Prisma.StringFieldUpdateOperationsInput | string
   estimatedDeliveryDate?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   deliveryDate?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  status?: Prisma.StringFieldUpdateOperationsInput | string
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  deleteAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  user?: Prisma.UserUpdateOneRequiredWithoutOrdersNestedInput
+  deletedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  deliveryAddress?: Prisma.AddressUpdateOneRequiredWithoutOrdersNestedInput
+  client?: Prisma.ClientUpdateOneRequiredWithoutOrdersNestedInput
   items?: Prisma.OrderItemUpdateManyWithoutOrderNestedInput
 }
 
 export type OrderUncheckedUpdateInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   orderNumber?: Prisma.StringFieldUpdateOperationsInput | string
-  deliveryAddress?: Prisma.StringFieldUpdateOperationsInput | string
+  deliveryAddressId?: Prisma.StringFieldUpdateOperationsInput | string
   estimatedDeliveryDate?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   deliveryDate?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  status?: Prisma.StringFieldUpdateOperationsInput | string
-  userId?: Prisma.StringFieldUpdateOperationsInput | string
+  clientId?: Prisma.StringFieldUpdateOperationsInput | string
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  deleteAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  deletedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   items?: Prisma.OrderItemUncheckedUpdateManyWithoutOrderNestedInput
 }
 
 export type OrderCreateManyInput = {
   id?: string
   orderNumber: string
-  deliveryAddress: string
+  deliveryAddressId: string
   estimatedDeliveryDate: Date | string
   deliveryDate?: Date | string | null
-  status: string
-  userId: string
+  clientId: string
   createdAt?: Date | string
   updatedAt?: Date | string
-  deleteAt?: Date | string | null
+  deletedAt?: Date | string | null
 }
 
 export type OrderUpdateManyMutationInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   orderNumber?: Prisma.StringFieldUpdateOperationsInput | string
-  deliveryAddress?: Prisma.StringFieldUpdateOperationsInput | string
   estimatedDeliveryDate?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   deliveryDate?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  status?: Prisma.StringFieldUpdateOperationsInput | string
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  deleteAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  deletedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
 }
 
 export type OrderUncheckedUpdateManyInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   orderNumber?: Prisma.StringFieldUpdateOperationsInput | string
-  deliveryAddress?: Prisma.StringFieldUpdateOperationsInput | string
+  deliveryAddressId?: Prisma.StringFieldUpdateOperationsInput | string
   estimatedDeliveryDate?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   deliveryDate?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  status?: Prisma.StringFieldUpdateOperationsInput | string
-  userId?: Prisma.StringFieldUpdateOperationsInput | string
+  clientId?: Prisma.StringFieldUpdateOperationsInput | string
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  deleteAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  deletedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+}
+
+export type OrderCountOrderByAggregateInput = {
+  id?: Prisma.SortOrder
+  orderNumber?: Prisma.SortOrder
+  deliveryAddressId?: Prisma.SortOrder
+  estimatedDeliveryDate?: Prisma.SortOrder
+  deliveryDate?: Prisma.SortOrder
+  clientId?: Prisma.SortOrder
+  createdAt?: Prisma.SortOrder
+  updatedAt?: Prisma.SortOrder
+  deletedAt?: Prisma.SortOrder
+}
+
+export type OrderMaxOrderByAggregateInput = {
+  id?: Prisma.SortOrder
+  orderNumber?: Prisma.SortOrder
+  deliveryAddressId?: Prisma.SortOrder
+  estimatedDeliveryDate?: Prisma.SortOrder
+  deliveryDate?: Prisma.SortOrder
+  clientId?: Prisma.SortOrder
+  createdAt?: Prisma.SortOrder
+  updatedAt?: Prisma.SortOrder
+  deletedAt?: Prisma.SortOrder
+}
+
+export type OrderMinOrderByAggregateInput = {
+  id?: Prisma.SortOrder
+  orderNumber?: Prisma.SortOrder
+  deliveryAddressId?: Prisma.SortOrder
+  estimatedDeliveryDate?: Prisma.SortOrder
+  deliveryDate?: Prisma.SortOrder
+  clientId?: Prisma.SortOrder
+  createdAt?: Prisma.SortOrder
+  updatedAt?: Prisma.SortOrder
+  deletedAt?: Prisma.SortOrder
+}
+
+export type OrderScalarRelationFilter = {
+  is?: Prisma.OrderWhereInput
+  isNot?: Prisma.OrderWhereInput
 }
 
 export type OrderListRelationFilter = {
@@ -393,92 +417,6 @@ export type OrderListRelationFilter = {
 
 export type OrderOrderByRelationAggregateInput = {
   _count?: Prisma.SortOrder
-}
-
-export type OrderCountOrderByAggregateInput = {
-  id?: Prisma.SortOrder
-  orderNumber?: Prisma.SortOrder
-  deliveryAddress?: Prisma.SortOrder
-  estimatedDeliveryDate?: Prisma.SortOrder
-  deliveryDate?: Prisma.SortOrder
-  status?: Prisma.SortOrder
-  userId?: Prisma.SortOrder
-  createdAt?: Prisma.SortOrder
-  updatedAt?: Prisma.SortOrder
-  deleteAt?: Prisma.SortOrder
-}
-
-export type OrderMaxOrderByAggregateInput = {
-  id?: Prisma.SortOrder
-  orderNumber?: Prisma.SortOrder
-  deliveryAddress?: Prisma.SortOrder
-  estimatedDeliveryDate?: Prisma.SortOrder
-  deliveryDate?: Prisma.SortOrder
-  status?: Prisma.SortOrder
-  userId?: Prisma.SortOrder
-  createdAt?: Prisma.SortOrder
-  updatedAt?: Prisma.SortOrder
-  deleteAt?: Prisma.SortOrder
-}
-
-export type OrderMinOrderByAggregateInput = {
-  id?: Prisma.SortOrder
-  orderNumber?: Prisma.SortOrder
-  deliveryAddress?: Prisma.SortOrder
-  estimatedDeliveryDate?: Prisma.SortOrder
-  deliveryDate?: Prisma.SortOrder
-  status?: Prisma.SortOrder
-  userId?: Prisma.SortOrder
-  createdAt?: Prisma.SortOrder
-  updatedAt?: Prisma.SortOrder
-  deleteAt?: Prisma.SortOrder
-}
-
-export type OrderScalarRelationFilter = {
-  is?: Prisma.OrderWhereInput
-  isNot?: Prisma.OrderWhereInput
-}
-
-export type OrderCreateNestedManyWithoutUserInput = {
-  create?: Prisma.XOR<Prisma.OrderCreateWithoutUserInput, Prisma.OrderUncheckedCreateWithoutUserInput> | Prisma.OrderCreateWithoutUserInput[] | Prisma.OrderUncheckedCreateWithoutUserInput[]
-  connectOrCreate?: Prisma.OrderCreateOrConnectWithoutUserInput | Prisma.OrderCreateOrConnectWithoutUserInput[]
-  createMany?: Prisma.OrderCreateManyUserInputEnvelope
-  connect?: Prisma.OrderWhereUniqueInput | Prisma.OrderWhereUniqueInput[]
-}
-
-export type OrderUncheckedCreateNestedManyWithoutUserInput = {
-  create?: Prisma.XOR<Prisma.OrderCreateWithoutUserInput, Prisma.OrderUncheckedCreateWithoutUserInput> | Prisma.OrderCreateWithoutUserInput[] | Prisma.OrderUncheckedCreateWithoutUserInput[]
-  connectOrCreate?: Prisma.OrderCreateOrConnectWithoutUserInput | Prisma.OrderCreateOrConnectWithoutUserInput[]
-  createMany?: Prisma.OrderCreateManyUserInputEnvelope
-  connect?: Prisma.OrderWhereUniqueInput | Prisma.OrderWhereUniqueInput[]
-}
-
-export type OrderUpdateManyWithoutUserNestedInput = {
-  create?: Prisma.XOR<Prisma.OrderCreateWithoutUserInput, Prisma.OrderUncheckedCreateWithoutUserInput> | Prisma.OrderCreateWithoutUserInput[] | Prisma.OrderUncheckedCreateWithoutUserInput[]
-  connectOrCreate?: Prisma.OrderCreateOrConnectWithoutUserInput | Prisma.OrderCreateOrConnectWithoutUserInput[]
-  upsert?: Prisma.OrderUpsertWithWhereUniqueWithoutUserInput | Prisma.OrderUpsertWithWhereUniqueWithoutUserInput[]
-  createMany?: Prisma.OrderCreateManyUserInputEnvelope
-  set?: Prisma.OrderWhereUniqueInput | Prisma.OrderWhereUniqueInput[]
-  disconnect?: Prisma.OrderWhereUniqueInput | Prisma.OrderWhereUniqueInput[]
-  delete?: Prisma.OrderWhereUniqueInput | Prisma.OrderWhereUniqueInput[]
-  connect?: Prisma.OrderWhereUniqueInput | Prisma.OrderWhereUniqueInput[]
-  update?: Prisma.OrderUpdateWithWhereUniqueWithoutUserInput | Prisma.OrderUpdateWithWhereUniqueWithoutUserInput[]
-  updateMany?: Prisma.OrderUpdateManyWithWhereWithoutUserInput | Prisma.OrderUpdateManyWithWhereWithoutUserInput[]
-  deleteMany?: Prisma.OrderScalarWhereInput | Prisma.OrderScalarWhereInput[]
-}
-
-export type OrderUncheckedUpdateManyWithoutUserNestedInput = {
-  create?: Prisma.XOR<Prisma.OrderCreateWithoutUserInput, Prisma.OrderUncheckedCreateWithoutUserInput> | Prisma.OrderCreateWithoutUserInput[] | Prisma.OrderUncheckedCreateWithoutUserInput[]
-  connectOrCreate?: Prisma.OrderCreateOrConnectWithoutUserInput | Prisma.OrderCreateOrConnectWithoutUserInput[]
-  upsert?: Prisma.OrderUpsertWithWhereUniqueWithoutUserInput | Prisma.OrderUpsertWithWhereUniqueWithoutUserInput[]
-  createMany?: Prisma.OrderCreateManyUserInputEnvelope
-  set?: Prisma.OrderWhereUniqueInput | Prisma.OrderWhereUniqueInput[]
-  disconnect?: Prisma.OrderWhereUniqueInput | Prisma.OrderWhereUniqueInput[]
-  delete?: Prisma.OrderWhereUniqueInput | Prisma.OrderWhereUniqueInput[]
-  connect?: Prisma.OrderWhereUniqueInput | Prisma.OrderWhereUniqueInput[]
-  update?: Prisma.OrderUpdateWithWhereUniqueWithoutUserInput | Prisma.OrderUpdateWithWhereUniqueWithoutUserInput[]
-  updateMany?: Prisma.OrderUpdateManyWithWhereWithoutUserInput | Prisma.OrderUpdateManyWithWhereWithoutUserInput[]
-  deleteMany?: Prisma.OrderScalarWhereInput | Prisma.OrderScalarWhereInput[]
 }
 
 export type NullableDateTimeFieldUpdateOperationsInput = {
@@ -499,98 +437,112 @@ export type OrderUpdateOneRequiredWithoutItemsNestedInput = {
   update?: Prisma.XOR<Prisma.XOR<Prisma.OrderUpdateToOneWithWhereWithoutItemsInput, Prisma.OrderUpdateWithoutItemsInput>, Prisma.OrderUncheckedUpdateWithoutItemsInput>
 }
 
-export type OrderCreateWithoutUserInput = {
-  id?: string
-  orderNumber: string
-  deliveryAddress: string
-  estimatedDeliveryDate: Date | string
-  deliveryDate?: Date | string | null
-  status: string
-  createdAt?: Date | string
-  updatedAt?: Date | string
-  deleteAt?: Date | string | null
-  items?: Prisma.OrderItemCreateNestedManyWithoutOrderInput
+export type OrderCreateNestedManyWithoutDeliveryAddressInput = {
+  create?: Prisma.XOR<Prisma.OrderCreateWithoutDeliveryAddressInput, Prisma.OrderUncheckedCreateWithoutDeliveryAddressInput> | Prisma.OrderCreateWithoutDeliveryAddressInput[] | Prisma.OrderUncheckedCreateWithoutDeliveryAddressInput[]
+  connectOrCreate?: Prisma.OrderCreateOrConnectWithoutDeliveryAddressInput | Prisma.OrderCreateOrConnectWithoutDeliveryAddressInput[]
+  createMany?: Prisma.OrderCreateManyDeliveryAddressInputEnvelope
+  connect?: Prisma.OrderWhereUniqueInput | Prisma.OrderWhereUniqueInput[]
 }
 
-export type OrderUncheckedCreateWithoutUserInput = {
-  id?: string
-  orderNumber: string
-  deliveryAddress: string
-  estimatedDeliveryDate: Date | string
-  deliveryDate?: Date | string | null
-  status: string
-  createdAt?: Date | string
-  updatedAt?: Date | string
-  deleteAt?: Date | string | null
-  items?: Prisma.OrderItemUncheckedCreateNestedManyWithoutOrderInput
+export type OrderUncheckedCreateNestedManyWithoutDeliveryAddressInput = {
+  create?: Prisma.XOR<Prisma.OrderCreateWithoutDeliveryAddressInput, Prisma.OrderUncheckedCreateWithoutDeliveryAddressInput> | Prisma.OrderCreateWithoutDeliveryAddressInput[] | Prisma.OrderUncheckedCreateWithoutDeliveryAddressInput[]
+  connectOrCreate?: Prisma.OrderCreateOrConnectWithoutDeliveryAddressInput | Prisma.OrderCreateOrConnectWithoutDeliveryAddressInput[]
+  createMany?: Prisma.OrderCreateManyDeliveryAddressInputEnvelope
+  connect?: Prisma.OrderWhereUniqueInput | Prisma.OrderWhereUniqueInput[]
 }
 
-export type OrderCreateOrConnectWithoutUserInput = {
-  where: Prisma.OrderWhereUniqueInput
-  create: Prisma.XOR<Prisma.OrderCreateWithoutUserInput, Prisma.OrderUncheckedCreateWithoutUserInput>
+export type OrderUpdateManyWithoutDeliveryAddressNestedInput = {
+  create?: Prisma.XOR<Prisma.OrderCreateWithoutDeliveryAddressInput, Prisma.OrderUncheckedCreateWithoutDeliveryAddressInput> | Prisma.OrderCreateWithoutDeliveryAddressInput[] | Prisma.OrderUncheckedCreateWithoutDeliveryAddressInput[]
+  connectOrCreate?: Prisma.OrderCreateOrConnectWithoutDeliveryAddressInput | Prisma.OrderCreateOrConnectWithoutDeliveryAddressInput[]
+  upsert?: Prisma.OrderUpsertWithWhereUniqueWithoutDeliveryAddressInput | Prisma.OrderUpsertWithWhereUniqueWithoutDeliveryAddressInput[]
+  createMany?: Prisma.OrderCreateManyDeliveryAddressInputEnvelope
+  set?: Prisma.OrderWhereUniqueInput | Prisma.OrderWhereUniqueInput[]
+  disconnect?: Prisma.OrderWhereUniqueInput | Prisma.OrderWhereUniqueInput[]
+  delete?: Prisma.OrderWhereUniqueInput | Prisma.OrderWhereUniqueInput[]
+  connect?: Prisma.OrderWhereUniqueInput | Prisma.OrderWhereUniqueInput[]
+  update?: Prisma.OrderUpdateWithWhereUniqueWithoutDeliveryAddressInput | Prisma.OrderUpdateWithWhereUniqueWithoutDeliveryAddressInput[]
+  updateMany?: Prisma.OrderUpdateManyWithWhereWithoutDeliveryAddressInput | Prisma.OrderUpdateManyWithWhereWithoutDeliveryAddressInput[]
+  deleteMany?: Prisma.OrderScalarWhereInput | Prisma.OrderScalarWhereInput[]
 }
 
-export type OrderCreateManyUserInputEnvelope = {
-  data: Prisma.OrderCreateManyUserInput | Prisma.OrderCreateManyUserInput[]
-  skipDuplicates?: boolean
+export type OrderUncheckedUpdateManyWithoutDeliveryAddressNestedInput = {
+  create?: Prisma.XOR<Prisma.OrderCreateWithoutDeliveryAddressInput, Prisma.OrderUncheckedCreateWithoutDeliveryAddressInput> | Prisma.OrderCreateWithoutDeliveryAddressInput[] | Prisma.OrderUncheckedCreateWithoutDeliveryAddressInput[]
+  connectOrCreate?: Prisma.OrderCreateOrConnectWithoutDeliveryAddressInput | Prisma.OrderCreateOrConnectWithoutDeliveryAddressInput[]
+  upsert?: Prisma.OrderUpsertWithWhereUniqueWithoutDeliveryAddressInput | Prisma.OrderUpsertWithWhereUniqueWithoutDeliveryAddressInput[]
+  createMany?: Prisma.OrderCreateManyDeliveryAddressInputEnvelope
+  set?: Prisma.OrderWhereUniqueInput | Prisma.OrderWhereUniqueInput[]
+  disconnect?: Prisma.OrderWhereUniqueInput | Prisma.OrderWhereUniqueInput[]
+  delete?: Prisma.OrderWhereUniqueInput | Prisma.OrderWhereUniqueInput[]
+  connect?: Prisma.OrderWhereUniqueInput | Prisma.OrderWhereUniqueInput[]
+  update?: Prisma.OrderUpdateWithWhereUniqueWithoutDeliveryAddressInput | Prisma.OrderUpdateWithWhereUniqueWithoutDeliveryAddressInput[]
+  updateMany?: Prisma.OrderUpdateManyWithWhereWithoutDeliveryAddressInput | Prisma.OrderUpdateManyWithWhereWithoutDeliveryAddressInput[]
+  deleteMany?: Prisma.OrderScalarWhereInput | Prisma.OrderScalarWhereInput[]
 }
 
-export type OrderUpsertWithWhereUniqueWithoutUserInput = {
-  where: Prisma.OrderWhereUniqueInput
-  update: Prisma.XOR<Prisma.OrderUpdateWithoutUserInput, Prisma.OrderUncheckedUpdateWithoutUserInput>
-  create: Prisma.XOR<Prisma.OrderCreateWithoutUserInput, Prisma.OrderUncheckedCreateWithoutUserInput>
+export type OrderCreateNestedManyWithoutClientInput = {
+  create?: Prisma.XOR<Prisma.OrderCreateWithoutClientInput, Prisma.OrderUncheckedCreateWithoutClientInput> | Prisma.OrderCreateWithoutClientInput[] | Prisma.OrderUncheckedCreateWithoutClientInput[]
+  connectOrCreate?: Prisma.OrderCreateOrConnectWithoutClientInput | Prisma.OrderCreateOrConnectWithoutClientInput[]
+  createMany?: Prisma.OrderCreateManyClientInputEnvelope
+  connect?: Prisma.OrderWhereUniqueInput | Prisma.OrderWhereUniqueInput[]
 }
 
-export type OrderUpdateWithWhereUniqueWithoutUserInput = {
-  where: Prisma.OrderWhereUniqueInput
-  data: Prisma.XOR<Prisma.OrderUpdateWithoutUserInput, Prisma.OrderUncheckedUpdateWithoutUserInput>
+export type OrderUncheckedCreateNestedManyWithoutClientInput = {
+  create?: Prisma.XOR<Prisma.OrderCreateWithoutClientInput, Prisma.OrderUncheckedCreateWithoutClientInput> | Prisma.OrderCreateWithoutClientInput[] | Prisma.OrderUncheckedCreateWithoutClientInput[]
+  connectOrCreate?: Prisma.OrderCreateOrConnectWithoutClientInput | Prisma.OrderCreateOrConnectWithoutClientInput[]
+  createMany?: Prisma.OrderCreateManyClientInputEnvelope
+  connect?: Prisma.OrderWhereUniqueInput | Prisma.OrderWhereUniqueInput[]
 }
 
-export type OrderUpdateManyWithWhereWithoutUserInput = {
-  where: Prisma.OrderScalarWhereInput
-  data: Prisma.XOR<Prisma.OrderUpdateManyMutationInput, Prisma.OrderUncheckedUpdateManyWithoutUserInput>
+export type OrderUpdateManyWithoutClientNestedInput = {
+  create?: Prisma.XOR<Prisma.OrderCreateWithoutClientInput, Prisma.OrderUncheckedCreateWithoutClientInput> | Prisma.OrderCreateWithoutClientInput[] | Prisma.OrderUncheckedCreateWithoutClientInput[]
+  connectOrCreate?: Prisma.OrderCreateOrConnectWithoutClientInput | Prisma.OrderCreateOrConnectWithoutClientInput[]
+  upsert?: Prisma.OrderUpsertWithWhereUniqueWithoutClientInput | Prisma.OrderUpsertWithWhereUniqueWithoutClientInput[]
+  createMany?: Prisma.OrderCreateManyClientInputEnvelope
+  set?: Prisma.OrderWhereUniqueInput | Prisma.OrderWhereUniqueInput[]
+  disconnect?: Prisma.OrderWhereUniqueInput | Prisma.OrderWhereUniqueInput[]
+  delete?: Prisma.OrderWhereUniqueInput | Prisma.OrderWhereUniqueInput[]
+  connect?: Prisma.OrderWhereUniqueInput | Prisma.OrderWhereUniqueInput[]
+  update?: Prisma.OrderUpdateWithWhereUniqueWithoutClientInput | Prisma.OrderUpdateWithWhereUniqueWithoutClientInput[]
+  updateMany?: Prisma.OrderUpdateManyWithWhereWithoutClientInput | Prisma.OrderUpdateManyWithWhereWithoutClientInput[]
+  deleteMany?: Prisma.OrderScalarWhereInput | Prisma.OrderScalarWhereInput[]
 }
 
-export type OrderScalarWhereInput = {
-  AND?: Prisma.OrderScalarWhereInput | Prisma.OrderScalarWhereInput[]
-  OR?: Prisma.OrderScalarWhereInput[]
-  NOT?: Prisma.OrderScalarWhereInput | Prisma.OrderScalarWhereInput[]
-  id?: Prisma.StringFilter<"Order"> | string
-  orderNumber?: Prisma.StringFilter<"Order"> | string
-  deliveryAddress?: Prisma.StringFilter<"Order"> | string
-  estimatedDeliveryDate?: Prisma.DateTimeFilter<"Order"> | Date | string
-  deliveryDate?: Prisma.DateTimeNullableFilter<"Order"> | Date | string | null
-  status?: Prisma.StringFilter<"Order"> | string
-  userId?: Prisma.StringFilter<"Order"> | string
-  createdAt?: Prisma.DateTimeFilter<"Order"> | Date | string
-  updatedAt?: Prisma.DateTimeFilter<"Order"> | Date | string
-  deleteAt?: Prisma.DateTimeNullableFilter<"Order"> | Date | string | null
+export type OrderUncheckedUpdateManyWithoutClientNestedInput = {
+  create?: Prisma.XOR<Prisma.OrderCreateWithoutClientInput, Prisma.OrderUncheckedCreateWithoutClientInput> | Prisma.OrderCreateWithoutClientInput[] | Prisma.OrderUncheckedCreateWithoutClientInput[]
+  connectOrCreate?: Prisma.OrderCreateOrConnectWithoutClientInput | Prisma.OrderCreateOrConnectWithoutClientInput[]
+  upsert?: Prisma.OrderUpsertWithWhereUniqueWithoutClientInput | Prisma.OrderUpsertWithWhereUniqueWithoutClientInput[]
+  createMany?: Prisma.OrderCreateManyClientInputEnvelope
+  set?: Prisma.OrderWhereUniqueInput | Prisma.OrderWhereUniqueInput[]
+  disconnect?: Prisma.OrderWhereUniqueInput | Prisma.OrderWhereUniqueInput[]
+  delete?: Prisma.OrderWhereUniqueInput | Prisma.OrderWhereUniqueInput[]
+  connect?: Prisma.OrderWhereUniqueInput | Prisma.OrderWhereUniqueInput[]
+  update?: Prisma.OrderUpdateWithWhereUniqueWithoutClientInput | Prisma.OrderUpdateWithWhereUniqueWithoutClientInput[]
+  updateMany?: Prisma.OrderUpdateManyWithWhereWithoutClientInput | Prisma.OrderUpdateManyWithWhereWithoutClientInput[]
+  deleteMany?: Prisma.OrderScalarWhereInput | Prisma.OrderScalarWhereInput[]
 }
 
 export type OrderCreateWithoutItemsInput = {
   id?: string
   orderNumber: string
-  deliveryAddress: string
   estimatedDeliveryDate: Date | string
   deliveryDate?: Date | string | null
-  status: string
   createdAt?: Date | string
   updatedAt?: Date | string
-  deleteAt?: Date | string | null
-  user: Prisma.UserCreateNestedOneWithoutOrdersInput
+  deletedAt?: Date | string | null
+  deliveryAddress: Prisma.AddressCreateNestedOneWithoutOrdersInput
+  client: Prisma.ClientCreateNestedOneWithoutOrdersInput
 }
 
 export type OrderUncheckedCreateWithoutItemsInput = {
   id?: string
   orderNumber: string
-  deliveryAddress: string
+  deliveryAddressId: string
   estimatedDeliveryDate: Date | string
   deliveryDate?: Date | string | null
-  status: string
-  userId: string
+  clientId: string
   createdAt?: Date | string
   updatedAt?: Date | string
-  deleteAt?: Date | string | null
+  deletedAt?: Date | string | null
 }
 
 export type OrderCreateOrConnectWithoutItemsInput = {
@@ -612,77 +564,232 @@ export type OrderUpdateToOneWithWhereWithoutItemsInput = {
 export type OrderUpdateWithoutItemsInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   orderNumber?: Prisma.StringFieldUpdateOperationsInput | string
-  deliveryAddress?: Prisma.StringFieldUpdateOperationsInput | string
   estimatedDeliveryDate?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   deliveryDate?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  status?: Prisma.StringFieldUpdateOperationsInput | string
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  deleteAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  user?: Prisma.UserUpdateOneRequiredWithoutOrdersNestedInput
+  deletedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  deliveryAddress?: Prisma.AddressUpdateOneRequiredWithoutOrdersNestedInput
+  client?: Prisma.ClientUpdateOneRequiredWithoutOrdersNestedInput
 }
 
 export type OrderUncheckedUpdateWithoutItemsInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   orderNumber?: Prisma.StringFieldUpdateOperationsInput | string
-  deliveryAddress?: Prisma.StringFieldUpdateOperationsInput | string
+  deliveryAddressId?: Prisma.StringFieldUpdateOperationsInput | string
   estimatedDeliveryDate?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   deliveryDate?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  status?: Prisma.StringFieldUpdateOperationsInput | string
-  userId?: Prisma.StringFieldUpdateOperationsInput | string
+  clientId?: Prisma.StringFieldUpdateOperationsInput | string
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  deleteAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  deletedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
 }
 
-export type OrderCreateManyUserInput = {
+export type OrderCreateWithoutDeliveryAddressInput = {
   id?: string
   orderNumber: string
-  deliveryAddress: string
   estimatedDeliveryDate: Date | string
   deliveryDate?: Date | string | null
-  status: string
   createdAt?: Date | string
   updatedAt?: Date | string
-  deleteAt?: Date | string | null
+  deletedAt?: Date | string | null
+  client: Prisma.ClientCreateNestedOneWithoutOrdersInput
+  items?: Prisma.OrderItemCreateNestedManyWithoutOrderInput
 }
 
-export type OrderUpdateWithoutUserInput = {
+export type OrderUncheckedCreateWithoutDeliveryAddressInput = {
+  id?: string
+  orderNumber: string
+  estimatedDeliveryDate: Date | string
+  deliveryDate?: Date | string | null
+  clientId: string
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  deletedAt?: Date | string | null
+  items?: Prisma.OrderItemUncheckedCreateNestedManyWithoutOrderInput
+}
+
+export type OrderCreateOrConnectWithoutDeliveryAddressInput = {
+  where: Prisma.OrderWhereUniqueInput
+  create: Prisma.XOR<Prisma.OrderCreateWithoutDeliveryAddressInput, Prisma.OrderUncheckedCreateWithoutDeliveryAddressInput>
+}
+
+export type OrderCreateManyDeliveryAddressInputEnvelope = {
+  data: Prisma.OrderCreateManyDeliveryAddressInput | Prisma.OrderCreateManyDeliveryAddressInput[]
+  skipDuplicates?: boolean
+}
+
+export type OrderUpsertWithWhereUniqueWithoutDeliveryAddressInput = {
+  where: Prisma.OrderWhereUniqueInput
+  update: Prisma.XOR<Prisma.OrderUpdateWithoutDeliveryAddressInput, Prisma.OrderUncheckedUpdateWithoutDeliveryAddressInput>
+  create: Prisma.XOR<Prisma.OrderCreateWithoutDeliveryAddressInput, Prisma.OrderUncheckedCreateWithoutDeliveryAddressInput>
+}
+
+export type OrderUpdateWithWhereUniqueWithoutDeliveryAddressInput = {
+  where: Prisma.OrderWhereUniqueInput
+  data: Prisma.XOR<Prisma.OrderUpdateWithoutDeliveryAddressInput, Prisma.OrderUncheckedUpdateWithoutDeliveryAddressInput>
+}
+
+export type OrderUpdateManyWithWhereWithoutDeliveryAddressInput = {
+  where: Prisma.OrderScalarWhereInput
+  data: Prisma.XOR<Prisma.OrderUpdateManyMutationInput, Prisma.OrderUncheckedUpdateManyWithoutDeliveryAddressInput>
+}
+
+export type OrderScalarWhereInput = {
+  AND?: Prisma.OrderScalarWhereInput | Prisma.OrderScalarWhereInput[]
+  OR?: Prisma.OrderScalarWhereInput[]
+  NOT?: Prisma.OrderScalarWhereInput | Prisma.OrderScalarWhereInput[]
+  id?: Prisma.StringFilter<"Order"> | string
+  orderNumber?: Prisma.StringFilter<"Order"> | string
+  deliveryAddressId?: Prisma.StringFilter<"Order"> | string
+  estimatedDeliveryDate?: Prisma.DateTimeFilter<"Order"> | Date | string
+  deliveryDate?: Prisma.DateTimeNullableFilter<"Order"> | Date | string | null
+  clientId?: Prisma.StringFilter<"Order"> | string
+  createdAt?: Prisma.DateTimeFilter<"Order"> | Date | string
+  updatedAt?: Prisma.DateTimeFilter<"Order"> | Date | string
+  deletedAt?: Prisma.DateTimeNullableFilter<"Order"> | Date | string | null
+}
+
+export type OrderCreateWithoutClientInput = {
+  id?: string
+  orderNumber: string
+  estimatedDeliveryDate: Date | string
+  deliveryDate?: Date | string | null
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  deletedAt?: Date | string | null
+  deliveryAddress: Prisma.AddressCreateNestedOneWithoutOrdersInput
+  items?: Prisma.OrderItemCreateNestedManyWithoutOrderInput
+}
+
+export type OrderUncheckedCreateWithoutClientInput = {
+  id?: string
+  orderNumber: string
+  deliveryAddressId: string
+  estimatedDeliveryDate: Date | string
+  deliveryDate?: Date | string | null
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  deletedAt?: Date | string | null
+  items?: Prisma.OrderItemUncheckedCreateNestedManyWithoutOrderInput
+}
+
+export type OrderCreateOrConnectWithoutClientInput = {
+  where: Prisma.OrderWhereUniqueInput
+  create: Prisma.XOR<Prisma.OrderCreateWithoutClientInput, Prisma.OrderUncheckedCreateWithoutClientInput>
+}
+
+export type OrderCreateManyClientInputEnvelope = {
+  data: Prisma.OrderCreateManyClientInput | Prisma.OrderCreateManyClientInput[]
+  skipDuplicates?: boolean
+}
+
+export type OrderUpsertWithWhereUniqueWithoutClientInput = {
+  where: Prisma.OrderWhereUniqueInput
+  update: Prisma.XOR<Prisma.OrderUpdateWithoutClientInput, Prisma.OrderUncheckedUpdateWithoutClientInput>
+  create: Prisma.XOR<Prisma.OrderCreateWithoutClientInput, Prisma.OrderUncheckedCreateWithoutClientInput>
+}
+
+export type OrderUpdateWithWhereUniqueWithoutClientInput = {
+  where: Prisma.OrderWhereUniqueInput
+  data: Prisma.XOR<Prisma.OrderUpdateWithoutClientInput, Prisma.OrderUncheckedUpdateWithoutClientInput>
+}
+
+export type OrderUpdateManyWithWhereWithoutClientInput = {
+  where: Prisma.OrderScalarWhereInput
+  data: Prisma.XOR<Prisma.OrderUpdateManyMutationInput, Prisma.OrderUncheckedUpdateManyWithoutClientInput>
+}
+
+export type OrderCreateManyDeliveryAddressInput = {
+  id?: string
+  orderNumber: string
+  estimatedDeliveryDate: Date | string
+  deliveryDate?: Date | string | null
+  clientId: string
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  deletedAt?: Date | string | null
+}
+
+export type OrderUpdateWithoutDeliveryAddressInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   orderNumber?: Prisma.StringFieldUpdateOperationsInput | string
-  deliveryAddress?: Prisma.StringFieldUpdateOperationsInput | string
   estimatedDeliveryDate?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   deliveryDate?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  status?: Prisma.StringFieldUpdateOperationsInput | string
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  deleteAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  deletedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  client?: Prisma.ClientUpdateOneRequiredWithoutOrdersNestedInput
   items?: Prisma.OrderItemUpdateManyWithoutOrderNestedInput
 }
 
-export type OrderUncheckedUpdateWithoutUserInput = {
+export type OrderUncheckedUpdateWithoutDeliveryAddressInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   orderNumber?: Prisma.StringFieldUpdateOperationsInput | string
-  deliveryAddress?: Prisma.StringFieldUpdateOperationsInput | string
   estimatedDeliveryDate?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   deliveryDate?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  status?: Prisma.StringFieldUpdateOperationsInput | string
+  clientId?: Prisma.StringFieldUpdateOperationsInput | string
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  deleteAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  deletedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   items?: Prisma.OrderItemUncheckedUpdateManyWithoutOrderNestedInput
 }
 
-export type OrderUncheckedUpdateManyWithoutUserInput = {
+export type OrderUncheckedUpdateManyWithoutDeliveryAddressInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   orderNumber?: Prisma.StringFieldUpdateOperationsInput | string
-  deliveryAddress?: Prisma.StringFieldUpdateOperationsInput | string
   estimatedDeliveryDate?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   deliveryDate?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  status?: Prisma.StringFieldUpdateOperationsInput | string
+  clientId?: Prisma.StringFieldUpdateOperationsInput | string
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  deleteAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  deletedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+}
+
+export type OrderCreateManyClientInput = {
+  id?: string
+  orderNumber: string
+  deliveryAddressId: string
+  estimatedDeliveryDate: Date | string
+  deliveryDate?: Date | string | null
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  deletedAt?: Date | string | null
+}
+
+export type OrderUpdateWithoutClientInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  orderNumber?: Prisma.StringFieldUpdateOperationsInput | string
+  estimatedDeliveryDate?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  deliveryDate?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  deletedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  deliveryAddress?: Prisma.AddressUpdateOneRequiredWithoutOrdersNestedInput
+  items?: Prisma.OrderItemUpdateManyWithoutOrderNestedInput
+}
+
+export type OrderUncheckedUpdateWithoutClientInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  orderNumber?: Prisma.StringFieldUpdateOperationsInput | string
+  deliveryAddressId?: Prisma.StringFieldUpdateOperationsInput | string
+  estimatedDeliveryDate?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  deliveryDate?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  deletedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  items?: Prisma.OrderItemUncheckedUpdateManyWithoutOrderNestedInput
+}
+
+export type OrderUncheckedUpdateManyWithoutClientInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  orderNumber?: Prisma.StringFieldUpdateOperationsInput | string
+  deliveryAddressId?: Prisma.StringFieldUpdateOperationsInput | string
+  estimatedDeliveryDate?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  deliveryDate?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  deletedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
 }
 
 
@@ -719,15 +826,15 @@ export type OrderCountOutputTypeCountItemsArgs<ExtArgs extends runtime.Types.Ext
 export type OrderSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
   orderNumber?: boolean
-  deliveryAddress?: boolean
+  deliveryAddressId?: boolean
   estimatedDeliveryDate?: boolean
   deliveryDate?: boolean
-  status?: boolean
-  userId?: boolean
+  clientId?: boolean
   createdAt?: boolean
   updatedAt?: boolean
-  deleteAt?: boolean
-  user?: boolean | Prisma.UserDefaultArgs<ExtArgs>
+  deletedAt?: boolean
+  deliveryAddress?: boolean | Prisma.AddressDefaultArgs<ExtArgs>
+  client?: boolean | Prisma.ClientDefaultArgs<ExtArgs>
   items?: boolean | Prisma.Order$itemsArgs<ExtArgs>
   _count?: boolean | Prisma.OrderCountOutputTypeDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["order"]>
@@ -735,74 +842,76 @@ export type OrderSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = 
 export type OrderSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
   orderNumber?: boolean
-  deliveryAddress?: boolean
+  deliveryAddressId?: boolean
   estimatedDeliveryDate?: boolean
   deliveryDate?: boolean
-  status?: boolean
-  userId?: boolean
+  clientId?: boolean
   createdAt?: boolean
   updatedAt?: boolean
-  deleteAt?: boolean
-  user?: boolean | Prisma.UserDefaultArgs<ExtArgs>
+  deletedAt?: boolean
+  deliveryAddress?: boolean | Prisma.AddressDefaultArgs<ExtArgs>
+  client?: boolean | Prisma.ClientDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["order"]>
 
 export type OrderSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
   orderNumber?: boolean
-  deliveryAddress?: boolean
+  deliveryAddressId?: boolean
   estimatedDeliveryDate?: boolean
   deliveryDate?: boolean
-  status?: boolean
-  userId?: boolean
+  clientId?: boolean
   createdAt?: boolean
   updatedAt?: boolean
-  deleteAt?: boolean
-  user?: boolean | Prisma.UserDefaultArgs<ExtArgs>
+  deletedAt?: boolean
+  deliveryAddress?: boolean | Prisma.AddressDefaultArgs<ExtArgs>
+  client?: boolean | Prisma.ClientDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["order"]>
 
 export type OrderSelectScalar = {
   id?: boolean
   orderNumber?: boolean
-  deliveryAddress?: boolean
+  deliveryAddressId?: boolean
   estimatedDeliveryDate?: boolean
   deliveryDate?: boolean
-  status?: boolean
-  userId?: boolean
+  clientId?: boolean
   createdAt?: boolean
   updatedAt?: boolean
-  deleteAt?: boolean
+  deletedAt?: boolean
 }
 
-export type OrderOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "orderNumber" | "deliveryAddress" | "estimatedDeliveryDate" | "deliveryDate" | "status" | "userId" | "createdAt" | "updatedAt" | "deleteAt", ExtArgs["result"]["order"]>
+export type OrderOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "orderNumber" | "deliveryAddressId" | "estimatedDeliveryDate" | "deliveryDate" | "clientId" | "createdAt" | "updatedAt" | "deletedAt", ExtArgs["result"]["order"]>
 export type OrderInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  user?: boolean | Prisma.UserDefaultArgs<ExtArgs>
+  deliveryAddress?: boolean | Prisma.AddressDefaultArgs<ExtArgs>
+  client?: boolean | Prisma.ClientDefaultArgs<ExtArgs>
   items?: boolean | Prisma.Order$itemsArgs<ExtArgs>
   _count?: boolean | Prisma.OrderCountOutputTypeDefaultArgs<ExtArgs>
 }
 export type OrderIncludeCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  user?: boolean | Prisma.UserDefaultArgs<ExtArgs>
+  deliveryAddress?: boolean | Prisma.AddressDefaultArgs<ExtArgs>
+  client?: boolean | Prisma.ClientDefaultArgs<ExtArgs>
 }
 export type OrderIncludeUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  user?: boolean | Prisma.UserDefaultArgs<ExtArgs>
+  deliveryAddress?: boolean | Prisma.AddressDefaultArgs<ExtArgs>
+  client?: boolean | Prisma.ClientDefaultArgs<ExtArgs>
 }
 
 export type $OrderPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   name: "Order"
   objects: {
-    user: Prisma.$UserPayload<ExtArgs>
+    deliveryAddress: Prisma.$AddressPayload<ExtArgs>
+    client: Prisma.$ClientPayload<ExtArgs>
     items: Prisma.$OrderItemPayload<ExtArgs>[]
   }
   scalars: runtime.Types.Extensions.GetPayloadResult<{
     id: string
     orderNumber: string
-    deliveryAddress: string
+    deliveryAddressId: string
     estimatedDeliveryDate: Date
     deliveryDate: Date | null
-    status: string
-    userId: string
+    clientId: string
     createdAt: Date
     updatedAt: Date
-    deleteAt: Date | null
+    deletedAt: Date | null
   }, ExtArgs["result"]["order"]>
   composites: {}
 }
@@ -1197,7 +1306,8 @@ readonly fields: OrderFieldRefs;
  */
 export interface Prisma__OrderClient<T, Null = never, ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
   readonly [Symbol.toStringTag]: "PrismaPromise"
-  user<T extends Prisma.UserDefaultArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.UserDefaultArgs<ExtArgs>>): Prisma.Prisma__UserClient<runtime.Types.Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+  deliveryAddress<T extends Prisma.AddressDefaultArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.AddressDefaultArgs<ExtArgs>>): Prisma.Prisma__AddressClient<runtime.Types.Result.GetResult<Prisma.$AddressPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+  client<T extends Prisma.ClientDefaultArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.ClientDefaultArgs<ExtArgs>>): Prisma.Prisma__ClientClient<runtime.Types.Result.GetResult<Prisma.$ClientPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
   items<T extends Prisma.Order$itemsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Order$itemsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$OrderItemPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   /**
    * Attaches callbacks for the resolution and/or rejection of the Promise.
@@ -1230,14 +1340,13 @@ export interface Prisma__OrderClient<T, Null = never, ExtArgs extends runtime.Ty
 export interface OrderFieldRefs {
   readonly id: Prisma.FieldRef<"Order", 'String'>
   readonly orderNumber: Prisma.FieldRef<"Order", 'String'>
-  readonly deliveryAddress: Prisma.FieldRef<"Order", 'String'>
+  readonly deliveryAddressId: Prisma.FieldRef<"Order", 'String'>
   readonly estimatedDeliveryDate: Prisma.FieldRef<"Order", 'DateTime'>
   readonly deliveryDate: Prisma.FieldRef<"Order", 'DateTime'>
-  readonly status: Prisma.FieldRef<"Order", 'String'>
-  readonly userId: Prisma.FieldRef<"Order", 'String'>
+  readonly clientId: Prisma.FieldRef<"Order", 'String'>
   readonly createdAt: Prisma.FieldRef<"Order", 'DateTime'>
   readonly updatedAt: Prisma.FieldRef<"Order", 'DateTime'>
-  readonly deleteAt: Prisma.FieldRef<"Order", 'DateTime'>
+  readonly deletedAt: Prisma.FieldRef<"Order", 'DateTime'>
 }
     
 

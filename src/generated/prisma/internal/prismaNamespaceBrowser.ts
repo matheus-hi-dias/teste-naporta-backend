@@ -53,7 +53,9 @@ export const AnyNull = runtime.AnyNull
 export const ModelName = {
   User: 'User',
   Order: 'Order',
-  OrderItem: 'OrderItem'
+  OrderItem: 'OrderItem',
+  Address: 'Address',
+  Client: 'Client'
 } as const
 
 export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -77,7 +79,6 @@ export const UserScalarFieldEnum = {
   email: 'email',
   name: 'name',
   password: 'password',
-  cpf: 'cpf',
   createdAt: 'createdAt',
   updatedAt: 'updatedAt'
 } as const
@@ -88,14 +89,13 @@ export type UserScalarFieldEnum = (typeof UserScalarFieldEnum)[keyof typeof User
 export const OrderScalarFieldEnum = {
   id: 'id',
   orderNumber: 'orderNumber',
-  deliveryAddress: 'deliveryAddress',
+  deliveryAddressId: 'deliveryAddressId',
   estimatedDeliveryDate: 'estimatedDeliveryDate',
   deliveryDate: 'deliveryDate',
-  status: 'status',
-  userId: 'userId',
+  clientId: 'clientId',
   createdAt: 'createdAt',
   updatedAt: 'updatedAt',
-  deleteAt: 'deleteAt'
+  deletedAt: 'deletedAt'
 } as const
 
 export type OrderScalarFieldEnum = (typeof OrderScalarFieldEnum)[keyof typeof OrderScalarFieldEnum]
@@ -104,7 +104,6 @@ export type OrderScalarFieldEnum = (typeof OrderScalarFieldEnum)[keyof typeof Or
 export const OrderItemScalarFieldEnum = {
   id: 'id',
   description: 'description',
-  quantity: 'quantity',
   price: 'price',
   orderId: 'orderId',
   createdAt: 'createdAt',
@@ -112,6 +111,33 @@ export const OrderItemScalarFieldEnum = {
 } as const
 
 export type OrderItemScalarFieldEnum = (typeof OrderItemScalarFieldEnum)[keyof typeof OrderItemScalarFieldEnum]
+
+
+export const AddressScalarFieldEnum = {
+  id: 'id',
+  street: 'street',
+  number: 'number',
+  district: 'district',
+  complement: 'complement',
+  city: 'city',
+  state: 'state',
+  zipCode: 'zipCode',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type AddressScalarFieldEnum = (typeof AddressScalarFieldEnum)[keyof typeof AddressScalarFieldEnum]
+
+
+export const ClientScalarFieldEnum = {
+  id: 'id',
+  name: 'name',
+  document: 'document',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type ClientScalarFieldEnum = (typeof ClientScalarFieldEnum)[keyof typeof ClientScalarFieldEnum]
 
 
 export const SortOrder = {
