@@ -39,7 +39,7 @@ export class AuthGuard implements CanActivate {
         secret: this.jwtSecret,
       });
 
-      request['user'] = { sub: parseInt(payload.sub!), email: payload.email };
+      request['user'] = { sub: payload.sub, email: payload.email };
     } catch {
       throw new UnauthorizedException();
     }
