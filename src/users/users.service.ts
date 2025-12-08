@@ -35,7 +35,13 @@ export class UsersService {
         password: hashedPassword,
       };
 
-      return await this.prismaService.user.create({ data: userData });
+      return await this.prismaService.user.create({
+        data: userData,
+        select: {
+          email: true,
+          name: true,
+        },
+      });
     } catch (error: unknown) {
       const message = error instanceof Error ? error.message : String(error);
       const trace = error instanceof Error ? error.stack : undefined;
@@ -58,7 +64,6 @@ export class UsersService {
         id: true,
         name: true,
         email: true,
-        orders: true,
       },
     });
   }
