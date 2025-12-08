@@ -1,12 +1,4 @@
-import {
-  IsEmail,
-  IsNotEmpty,
-  IsString,
-  Length,
-  Matches,
-  Validate,
-} from 'class-validator';
-import { CpfValidator } from '../validators/cpf.validator';
+import { IsEmail, IsNotEmpty, IsString, Length } from 'class-validator';
 
 export class CreateUserDto {
   @IsString()
@@ -21,10 +13,4 @@ export class CreateUserDto {
   @IsNotEmpty()
   @Length(8)
   password: string;
-
-  @IsString()
-  @IsNotEmpty()
-  @Matches(/^\d{11}$/, { message: 'cpf must contain exactly 11 digits' })
-  @Validate(CpfValidator)
-  cpf: string;
 }
